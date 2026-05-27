@@ -3,22 +3,22 @@ MCU = atmega328p	# This tells avr-gcc which AVR architecture/instruction set to 
 F_CPU = 16000000UL	# CPU Clock frequency basically used by delay functions 
 
 # Toolchain
-CC = avr-gcc		# AVR C Compiler
+CC = avr-gcc			# AVR C Compiler
 OBJCOPY = avr-objcopy	# Tool used to convert elf to hex
 
 # AVR Compiler Flags 
 CFLAGS = -mmcu=$(MCU) 		# -mmcu=$(MCU) tells compiler which MCU we are compiling
 CFLAGS += -DF_CPU=$(F_CPU)	# -D creates preprocessor macro as #define F_CPU 16000000UL
-CFLAGS += -Os			# -Os Optmize the code for small code size
+CFLAGS += -Os				# -Os Optmize the code for small code size
 CFLAGS += -Wall -Wextra		# -Wall enables most compiler warnings & -Wextra enables additional useful warnings
 
 # Target Name
-TARGET = main			# Base name for generated files produces main.elf and main.hex
+TARGET = main				# Base name for generated files produces main.elf and main.hex
 
 # Build Rules
 .PHONY: all flash clean		# .PHONY tells make that these are command and not actual files. Prevents weird behaviour if files named all flash and clean ever exist in directory
 
-all: $(TARGET).hex		# Run make command it runs the First target in Makefile, build files to create main.hex
+all: $(TARGET).hex			# Run "make" command it runs the First target in Makefile, build files to create main.hex
 
 # Rule syntax
 # target: dependency
