@@ -1,0 +1,47 @@
+# MCU Configuration
+MCU = atmega328p	# This tells avr-gcc which AVR architecture/instruction set to use
+F_CPU = 16000000UL	# CPU Clock frequency basically used by delay functions 
+
+# Toolchain
+CC = avr-gcc		# AVR C Compiler
+OBJCOPY = avr-objcopy	# Tool used to convert elf to hex
+
+# AVR Compiler Flags 
+CFLAGS = -mmcu=$(MCU) 		# -mmcu=$(MCU) tells compiler which MCU we are compiling
+CFLAGS += -DF_CPU=$(F_CPU)	# -D creates preprocessor macro as #define F_CPU 16000000UL
+CFLAGS += -Os			# -Os Optmize the code for small code size
+CFLAGS += -Wall -Wextra		# -Wall enables most compiler warnings & -Wextra enables additional useful warnings
+
+# Target Name
+TARGET = main			# Base name for generated files produces main.elf and main.hex
+
+# Build Rules
+.PHONY: all flash clean		# .PHONY tells make that these are command and not actual files. Prevents weird behaviour if files named all flash and clean ever exist in directory
+
+all: $(TARGET).hex		# Run make command it runs the First target in Makefile, build files to create main.hex
+
+# Rule syntax
+# target: dependency
+# <TAB>command
+
+# ELF File generation
+$(TARGET).elf: main.c		# means elf file depends on main.c If main.c changes Make rebuilds main.elf
+	$(CC) $(CFLAGS) -o $(TARGET).elf main.c	# avr-gcc internally does everything preprocessing,compilation,assemebly and linking and -o specifies output file name
+
+# HEX File generation
+$(TARGET).hex: $(TARGET).elf	#hex file depends on elf file 
+	$(OBJCOPY) -O ihex -R .eeprom $(TARGET).elf $(TARGET).hex	# Outputs in ihex = Intel HEX and Removes EEPROM section from output file and converts .elf to .hex
+
+# Flash MCU
+flash: $(TARGET).hex	# If hex does not exist build before flash
+	avrdude -c arduino -p m328p -P /dev/ttyUSB0 -b 115200 -U flash:w:$(TARGET).hex:i 
+# avrdude = AVR flashing/programming tool
+# -c arduino = Use arduino bootloader protocol
+# -p m328p = Target MCU Atmega328p
+# -P /dev/ttyUSB0 = Serial port connected to Arduino
+# -b 115200 = Baud rate
+# -U flash:w:main.hex:i = memory operation: flash->write->main.hex->Intel HEX format 
+
+# Clean generated Build files
+clean:
+	rm -f *.elf *.hex *.o	# Force remove executable,flash image and object files
