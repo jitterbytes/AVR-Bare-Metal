@@ -1,1 +1,11 @@
 # AVR-Bare-Metal
+This repository contains all the files and examples I used while learning AVR Bare Metal Programming on the Arduino UNO.  
+If you're interested in learning embedded systems and programming AVR microcontrollers at the register level, this repo will help you follow along with my journey.  
+
+## Blog Series
+I also documented the complete learning process in my blog series on Hashnode:  
+👉 https://bitstosystems.hashnode.dev/  
+The articles in the series contain AVR Bare Metal # in the title, so you can follow them in the correct order easily.  
+Happy Learning 🚀
+Make you sure you check out my blog on hashnode [click here](https://bitstosystems.hashnode.dev/) 
+The series has `AVR Bare Metal #` in the Title of the article so you can follow it properly.
