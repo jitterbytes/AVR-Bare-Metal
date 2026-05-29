@@ -1,5 +1,9 @@
 # AVR-Bare-Metal
-![Learning](https://img.shields.io/badge/Status-AVR%20Ongoing-green?style=flat)
+![Learning](https://img.shields.io/badge/Status-Learning-success?style=flat)
+![MCU](https://img.shields.io/badge/MCU-ATmega328P-blue?style=flat)
+![Bare Metal](https://img.shields.io/badge/Programming-Bare%20Metal-red?style=flat)
+![C](https://img.shields.io/badge/Language-C-00599C?style=flat)  
+
 This repository contains all the files and examples I used while learning AVR Bare Metal Programming on the Arduino UNO.  
 
 If you're interested in learning embedded systems and programming AVR microcontrollers at the register level, this repo will help you follow along with my journey.  
