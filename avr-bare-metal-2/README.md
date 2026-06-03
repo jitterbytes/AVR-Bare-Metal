@@ -22,5 +22,5 @@ make flash
 ```
 
 ## Other Files
-- The .elf and .hex files are the output of the  `make` command
+- The `.elf` and `.hex` files are the output of the  `make` command
 - `note_makefile.txt` - Contains my understanding of Makefile.  

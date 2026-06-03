@@ -4,23 +4,17 @@ This repository contains commands used in the article:
 
 **[From Arduino IDE to AVR GCC | AVR Bare Metal #1](https://bitstosystems.hashnode.dev/avr-bare-metal-1)** 
 
-## Commands
-
-* `main.c` - Application source code
-* `Makefile` - Build and flashing commands
-
-## Build
-
+## Toolchain Installation 
 ```bash
-make
+sudo apt update
+sudo apt install avr-gcc avr-libc avrdude make
 ```
 
-## Flash
-
+## Toolchain Verification 
 ```bash
-make flash
+avr-gcc --version
+avrdude -?
+make --version
 ```
 
-## Other Files
-- The .elf and .hex files are the output of the  `make` command
-- `note_makefile.txt` - Contains my understanding of Makefile.  
+
