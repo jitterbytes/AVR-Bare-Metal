@@ -2,7 +2,7 @@
 
 This repository contains the source code used in the article:
 
-**[Blinking a LED using Timer Polling Method | AVR Bare Metal #2](https://bitstosystems.hashnode.dev/avr-bare-metal-2)** 
+**[Blinking an LED using Timer Polling Method | AVR Bare Metal #2](https://bitstosystems.hashnode.dev/avr-bare-metal-2)** 
 
 ## Files
 

@@ -1,8 +1,8 @@
-# AVR Bare Metal #3
+# AVR Bare Metal #4
 
 This repository contains the source code used in the article:
 
-**[Blinking an LED using Timer Interrupt Method | AVR Bare Metal #3](https://bitstosystems.hashnode.dev/avr-bare-metal-3)** 
+**[Blinking an LED using Timer CTC Interrupt Method | AVR Bare Metal #4](https://bitstosystems.hashnode.dev/avr-bare-metal-4)** 
 
 ## Files
 
@@ -22,4 +22,4 @@ make flash
 ```
 
 ## Other Files
-- The `.elf` and `.hex` files are the output of the  `make` command
+- The `.elf` and `.hex` files are the output of the  `make` command  
